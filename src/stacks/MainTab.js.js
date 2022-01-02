@@ -18,7 +18,11 @@ export default () => {
         name="Home"
         component={Home}
       />
-      <Tab.Screen name="Programme" component={Programme} />
+      <Tab.Screen
+        name="Programme"
+        component={Programme}
+        options={{ headerShown: false }}
+      />
       <Tab.Screen name="Profile" component={Profile} />
 
     </Tab.Navigator>

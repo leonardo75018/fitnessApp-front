@@ -8,6 +8,8 @@ import SignUp from "../screens/SignUp/index";
 
 import MainTab from "./MainTab.js";
 import Weeks from "../screens/Weeks/";
+import Sessions from "../screens/Sessions/";
+
 
 
 
@@ -25,6 +27,8 @@ export default () => (
     <Stack.Screen name="SignUp" component={SignUp} />
     <Stack.Screen name="MainTab" component={MainTab} />
     <Stack.Screen name="Weeks" component={Weeks} />
+    <Stack.Screen name="Sessions" component={Sessions} />
+
 
 
   </Stack.Navigator>

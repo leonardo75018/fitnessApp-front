@@ -40,9 +40,10 @@ export default {
     const json = await req.json();
     return json;
   },
-
-  getSeancesProgramme: async (programmeId) => {
+  getProgrammeWeeks: async (programmeId) => {
     const token = await AsyncStorage.getItem("token")
+
+    const userId = "0ecfe4a5-75a2-40b9-bf5f-1c79ed7827bb"
 
     const req = await fetch(`${BASE_URL}/weeks/physical/${programmeId}`, {
       method: "GET",
@@ -54,8 +55,21 @@ export default {
     });
     const json = await req.json();
     return json;
+  },
+
+  getSeancesProgramme: async (WeekId) => {
+    const token = await AsyncStorage.getItem("token")
+
+    const req = await fetch(`${BASE_URL}/sessions/week/${WeekId}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: 'Bearer ' + token
+      }
+    });
+    const json = await req.json();
+    return json;
   }
-
-
 
 }

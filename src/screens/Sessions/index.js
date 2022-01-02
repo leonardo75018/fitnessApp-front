@@ -9,28 +9,27 @@ import ProgrammeItem from "../../components/ProgrammeItem"
 import ProgrammeIgm from "../../../assets/programme.jpg"
 
 
-
-
 export default () => {
   const navigation = useNavigation();
 
   const route = useRoute();
 
-  const programmeId = route.params.id
-  const [Weeks, SetWeeks] = useState([])
-  console.log(programmeId)
+  const weekId = route.params.id
+  const [seances, SetSeances] = useState([])
+  console.log(seances)
 
-  const getWeeks = async () => {
-    let response = await Api.getProgrammeWeeks(programmeId);
+
+  const getSeances = async () => {
+    let response = await Api.getSeancesProgramme(weekId);
     if (!response.message) {
-      SetWeeks(response)
+      SetSeances(response)
     } else {
       console.log(response.message)
     }
   }
 
   useEffect(() => {
-    getWeeks()
+    getSeances()
   }, [])
 
   return (
@@ -39,10 +38,10 @@ export default () => {
         <View style={estyle.fakeSwiper}>
           <Image style={estyle.fakeSwiperImg} source={ProgrammeIgm} />
         </View>
+        <View style={estyle.programme}  >
 
-        <View style={estyle.programme}>
-          {Weeks.map((item, k) => (
-            <ProgrammeItem key={k} data={item} description="Voir tous les détails" redirect="Sessions" />
+          {seances.map((item, k) => (
+            <ProgrammeItem key={k} data={item} description="Voir tous les détails" redirect="" />
           ))}
         </View>
       </ScrollView>

@@ -5,12 +5,12 @@ import { useNavigation } from "@react-navigation/native"
 import NextIcon from "../../assets/next.png"
 
 
-export default ({ data }) => {
+export default ({ data, description, redirect }) => {
 
   const navigation = useNavigation()
 
   const handleClik = () => {
-    navigation.navigate("Weeks", {
+    navigation.navigate(`${redirect}`, {
       id: data.id
     })
 
@@ -24,7 +24,7 @@ export default ({ data }) => {
         <View style={estyle.backDrop}></View>
         <View style={estyle.infoArea}>
           <Text style={estyle.infoText}>{data.name}</Text>
-          <Text>Encours</Text>
+          <Text>{description}</Text>
           <View style={estyle.goWeekBtn}>
             <View style={estyle.weekBtnText}></View>
           </View>
@@ -44,7 +44,7 @@ const estyle = StyleSheet.create({
   area: {
     width: "100%",
     height: "auto",
-    backgroundColor: "yellow",
+    // backgroundColor: "yellow",
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 20
