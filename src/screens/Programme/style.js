@@ -21,19 +21,6 @@ export default StyleSheet.create({
     // marginTop: 30,
     // marginBottom: 30,
   },
-  programmeInfos: {
-    marginBottom: 30,
-  },
-  programmeInfosTitle: {
-    fontWeight: "800",
-    fontSize: 16,
-    marginBottom: 10
-  },
-  programmeInfosDescriptions: {
-    fontWeight: "500",
-    fontSize: 13,
-    color: "rgba(0, 0, 0, 0.52)"
-  },
   fakeSwiper: {
     width: "100%",
     height: 280,
@@ -42,5 +29,6 @@ export default StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "cover"
-  }
+  },
+
 })

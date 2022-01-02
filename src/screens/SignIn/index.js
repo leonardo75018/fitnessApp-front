@@ -41,7 +41,7 @@ export default function SignIn() {
           }
         });
         navigation.reset({
-          routes: [{ name: "Home" }]
+          routes: [{ name: "MainTab" }]
         })
 
       } else {

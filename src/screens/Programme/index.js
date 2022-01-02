@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, RefreshControl, ScrollView, Image } from 'react-native';
+import { View, Text, SafeAreaView, RefreshControl, ScrollView, Image, } from 'react-native';
 import estyle from "./style"
 
 import Api from "../../Api";
 import ProgrammeItem from "../../components/ProgrammeItem";
-import ProgrammeIgm from "../../../assets/programme.jpg"
+import ProgrammeInfos from "../../components/ProgramInfos";
 
+import ProgrammeIgm from "../../../assets/programme.jpg";
 
 
 export default () => {
@@ -34,13 +35,8 @@ export default () => {
         <View style={estyle.fakeSwiper}>
           <Image style={estyle.fakeSwiperImg} source={ProgrammeIgm} />
         </View>
-
         <View style={estyle.programme}>
-          <View style={estyle.programmeInfos}>
-            <Text style={estyle.programmeInfosTitle}>Programmes</Text>
-            <Text style={estyle.programmeInfosDescriptions}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-          </View>
-
+          <ProgrammeInfos name="Programmes" description="blabla" />
           {programmes.map((item, k) => (
             <ProgrammeItem key={k} data={item} description="En cours" redirect="Weeks" />
           ))}

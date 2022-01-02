@@ -2,6 +2,7 @@ import React from "react";
 import { View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 import Preload from "../screens/Preload/index";
 import SingIn from "../screens/SignIn/index";
 import SignUp from "../screens/SignUp/index";
@@ -13,9 +14,11 @@ import Sessions from "../screens/Sessions/";
 
 
 
+
 const Stack = createNativeStackNavigator()
 
 export default () => (
+
   <Stack.Navigator
     initialRouteName="Preload"
     screenOptions={{
@@ -28,7 +31,6 @@ export default () => (
     <Stack.Screen name="MainTab" component={MainTab} />
     <Stack.Screen name="Weeks" component={Weeks} />
     <Stack.Screen name="Sessions" component={Sessions} />
-
 
 
   </Stack.Navigator>

@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 const BASE_URL = 'http://143.198.99.81';
 
 export default {
@@ -12,6 +13,9 @@ export default {
     });
     const json = await req.json();
     return json;
+  },
+  logout: async () => {
+    const token = await AsyncStorage.removeItem("token");
   },
   signUp: async (firstName, lastName, email, password, role) => {
     const req = await fetch(`${BASE_URL}/users`, {
