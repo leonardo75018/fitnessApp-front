@@ -50,7 +50,7 @@ export default () => {
         <View style={estyle.programme}  >
           <SessionsInfons name="Séances" description="" />
           {seances.map((item, k) => (
-            <ProgrammeItem key={k} data={item} description="Voir tous les détails" redirect="" />
+            <ProgrammeItem key={k} data={item} description="Voir tous les détails" redirect="Exercices" />
           ))}
         </View>
       </ScrollView>

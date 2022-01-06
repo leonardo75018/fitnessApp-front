@@ -10,6 +10,8 @@ import SignUp from "../screens/SignUp/index";
 import MainTab from "./MainTab.js";
 import Weeks from "../screens/Weeks/";
 import Sessions from "../screens/Sessions/";
+import Exercices from "../screens/Exercices/";
+
 
 
 
@@ -31,6 +33,7 @@ export default () => (
     <Stack.Screen name="MainTab" component={MainTab} />
     <Stack.Screen name="Weeks" component={Weeks} />
     <Stack.Screen name="Sessions" component={Sessions} />
+    <Stack.Screen name="Exercices" component={Exercices} />
 
 
   </Stack.Navigator>

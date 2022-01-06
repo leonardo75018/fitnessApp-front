@@ -13,9 +13,7 @@ import LockIcon from "../../../assets/lock.svg"
 import Api from "../../Api";
 
 
-
 export default function SignIn() {
-  const { dispath: userDispath } = useContext(UserContext);
 
   const navigation = useNavigation();
 
@@ -34,12 +32,14 @@ export default function SignIn() {
       if (response.token) {
         await AsyncStorage.setItem("token", response.token);
 
-        userDispath({
-          type: "setUserName",
-          payload: {
-            userName: response.user.firstName
-          }
-        });
+        // userDispath({
+        //   type: "setUserName",
+        //   payload: {
+        //     userName: response.user.firstName
+        //   }
+        // }
+        // );
+
         navigation.reset({
           routes: [{ name: "MainTab" }]
         })
@@ -56,7 +56,6 @@ export default function SignIn() {
 
 
   return <SafeAreaView style={estyle.container}>
-
     <View style={estyle.inputArea} >
       <SignInput
         IconSvg={EmailIcon}

@@ -1,6 +1,11 @@
+import React, { useEffect } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
 const BASE_URL = 'http://143.198.99.81';
+
+
+import { getUserDataLogin } from "../src/redux/userDuck"
 
 export default {
   signIn: async (email, password) => {
@@ -29,6 +34,7 @@ export default {
     return json;
   },
   getUserProgramme: async () => {
+
     const token = await AsyncStorage.getItem("token")
 
     const userId = "0ecfe4a5-75a2-40b9-bf5f-1c79ed7827bb"
