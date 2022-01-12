@@ -9,7 +9,7 @@ import ProgrammeItem from "../../components/ProgrammeItem"
 import SessionsInfons from "../../components/ProgramInfos"
 
 
-import ProgrammeIgm from "../../../assets/programme.jpg"
+import SessionIgm from "../../../assets/session.jpg"
 import BackIcon from "../../../assets/back.svg";
 
 
@@ -45,10 +45,10 @@ export default () => {
     <SafeAreaView style={estyle.container}>
       <ScrollView>
         <View style={estyle.fakeSwiper}>
-          <Image style={estyle.fakeSwiperImg} source={ProgrammeIgm} />
+          <Image style={estyle.fakeSwiperImg} source={SessionIgm} />
         </View>
         <View style={estyle.programme}  >
-          <SessionsInfons name="Séances" description="" />
+          <SessionsInfons name="Séances" description="Tu trouveras ici la liste des séances que tu dois effectuer cette semaine afin d'attendre tes objectifs " />
           {seances.map((item, k) => (
             <ProgrammeItem key={k} data={item} description="Voir tous les détails" redirect="Exercices" />
           ))}

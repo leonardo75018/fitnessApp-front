@@ -33,6 +33,7 @@ export default {
     const json = await req.json();
     return json;
   },
+
   getUserProgramme: async () => {
 
     const token = await AsyncStorage.getItem("token")
@@ -80,6 +81,24 @@ export default {
     });
     const json = await req.json();
     return json;
+  },
+
+  getSeanceExercice: async (sessionId) => {
+    const token = await AsyncStorage.getItem("token")
+
+    const req = await fetch(`${BASE_URL}/exercicesession/session/${sessionId}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: 'Bearer ' + token
+      }
+    });
+    const json = await req.json();
+    return json;
   }
+
+
+
 
 }

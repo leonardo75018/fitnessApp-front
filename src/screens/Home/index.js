@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { View, Text, Image, StyleSheet, ScrollView, SafeAreaView, StatusBar } from 'react-native';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getUserDataLogin } from "../../redux/userDuck"
 
 
@@ -13,7 +13,6 @@ import RandomExercice from "../../components/RandomExercice";
 
 export default () => {
   const [userData, setUserData] = useState({})
-
 
   //Déclancher une action du Reducer 
   const dispatch = useDispatch()
@@ -28,7 +27,8 @@ export default () => {
 
   //Lire notre state 
   const data = useSelector(state => state.userData)
-  console.log()
+
+
 
   return (
     <SafeAreaView style={estyle.container} >

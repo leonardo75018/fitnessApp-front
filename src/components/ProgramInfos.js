@@ -6,7 +6,7 @@ export default ({ name, description }) => {
   return (
     <View style={estyle.programmeInfos}>
       <Text style={estyle.programmeInfosTitle}>{name}</Text>
-      <Text style={estyle.programmeInfosDescriptions}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+      <Text style={estyle.programmeInfosDescriptions}>{description}</Text>
     </View>
   )
 }

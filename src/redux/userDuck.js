@@ -1,3 +1,8 @@
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
 //const state avec les informations
 const dataInicial = {
   firstName: "",
@@ -29,7 +34,7 @@ export default function userReducer(state = dataInicial, action) {
 
 
 //actions  vas chercher les data api
-export const getUserDataLogin = () => async (dispatch, getState) => {
+export const getUserDataLogin = () => async (dispatch) => {
   dispatch({
     type: GET_USER_DATA_LOGIN,
     payload: {
@@ -37,8 +42,8 @@ export const getUserDataLogin = () => async (dispatch, getState) => {
       "firstName": "leo",
       "lastName": "antonio",
     }
-  }
-  )
+  })
+  // AsyncStorage.setItem("user", response.user);
 
 }
 

@@ -4,7 +4,9 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 
 import HomeIcon from "../../assets/home.svg"
 import ProfileIcon from "../../assets/account.svg"
-import TrainingIcon from "../../assets/training.svg"
+import TrainingIcon from "../../assets/strength.svg"
+
+
 
 
 
@@ -18,7 +20,7 @@ export default ({ state, navigation }) => {
 
   return <View style={estyle.tabArea}>
     <TouchableOpacity style={estyle.tabItem} onPress={() => goTo("Home")}>
-      <HomeIcon width="24" height="24" />
+      <HomeIcon width="40" height="40" fill="black" />
     </TouchableOpacity>
 
     <TouchableOpacity style={estyle.tabItem} onPress={() => goTo("Programme")}>

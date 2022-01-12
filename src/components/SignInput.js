@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, TextInput } from "react-native"
+import { View, StyleSheet, TextInput } from "react-native";
+import { Input, Icon } from 'react-native-elements';
 
 
 
@@ -11,7 +12,9 @@ export default ({ IconSvg, placeholder, value, onChangeText, password }) => {
       value={value}
       onChangeText={onChangeText}
       secureTextEntry={password}
+      error
     />
+
   </View>
 }
 

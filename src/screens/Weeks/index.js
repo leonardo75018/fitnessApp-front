@@ -7,10 +7,11 @@ import Api from "../../Api";
 import ProgrammeItem from "../../components/ProgrammeItem"
 import ProgrammeIgm from "../../../assets/programme.jpg"
 import BackIcon from "../../../assets/back.svg";
+import WeekInfos from "../../components/ProgramInfos";
+
 
 export default () => {
   const navigation = useNavigation();
-
   const route = useRoute();
 
   const programmeId = route.params.id
@@ -34,6 +35,11 @@ export default () => {
     navigation.goBack()
   }
 
+
+
+
+
+
   return (
     <SafeAreaView style={estyle.container}>
       <ScrollView>
@@ -43,6 +49,8 @@ export default () => {
         </View>
 
         <View style={estyle.programme}>
+          <WeekInfos name="Semaines" description="Afin de mieux t'accompagner, j'ai vais découper ton programme en plusieurs semaines." />
+
           {Weeks.map((item, k) => (
             <ProgrammeItem key={k} data={item} description="Voir tous les détails" redirect="Sessions" />
           ))}

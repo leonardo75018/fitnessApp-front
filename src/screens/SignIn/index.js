@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Text, SafeAreaView, View, Button, TouchableOpacity, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,11 +12,13 @@ import EmailIcon from "../../../assets/email.svg"
 import LockIcon from "../../../assets/lock.svg"
 
 import Api from "../../Api";
+import { getUserDataLogin } from "../../redux/userDuck"
+
 
 
 export default function SignIn() {
-
   const navigation = useNavigation();
+  const dispatch = useDispatch()
 
   const [emailFiedl, setEmailFiedl] = useState("");
   const [passwordFiedl, setPasswordFiedl] = useState("");
@@ -27,18 +30,23 @@ export default function SignIn() {
   }
 
   const handleSignClick = async () => {
+
+
     if (emailFiedl != "" && passwordFiedl != "") {
       let response = await Api.signIn(emailFiedl, passwordFiedl);
       if (response.token) {
         await AsyncStorage.setItem("token", response.token);
 
-        // userDispath({
-        //   type: "setUserName",
-        //   payload: {
-        //     userName: response.user.firstName
-        //   }
-        // }
-        // );
+        dispatch(getUserDataLogin(dispatch({
+          type: "GET_USER_DATA_LOGIN",
+          payload: {
+            id: response.user.id,
+            firstName: response.user.firstName,
+            lastName: response.user.lastName,
+          }
+        })
+        ))
+        AsyncStorage.setItem("user", response.user.firstName);
 
         navigation.reset({
           routes: [{ name: "MainTab" }]
@@ -57,6 +65,7 @@ export default function SignIn() {
 
   return <SafeAreaView style={estyle.container}>
     <View style={estyle.inputArea} >
+
       <SignInput
         IconSvg={EmailIcon}
         placeholder="votre email"

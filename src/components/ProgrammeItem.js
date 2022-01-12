@@ -3,9 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native"
 
 import NextIcon from "../../assets/next.png"
-
-
-export default ({ data, description, redirect }) => {
+export default ({ data, description, redirect, image }) => {
 
   const navigation = useNavigation()
 
@@ -17,14 +15,15 @@ export default ({ data, description, redirect }) => {
   }
 
 
-
   return (
     <>
       <TouchableOpacity style={estyle.area} onPress={handleClik}>
-        <View style={estyle.backDrop}></View>
+        <View style={estyle.backDrop}>
+          <Image style={estyle.backDropSource} source={image} />
+        </View>
         <View style={estyle.infoArea}>
           <Text style={estyle.infoText}>{data.name}</Text>
-          <Text>{description}</Text>
+          <Text style={{ color: "green" }}>{description}</Text>
           <View style={estyle.goWeekBtn}>
             <View style={estyle.weekBtnText}></View>
           </View>
@@ -56,6 +55,12 @@ const estyle = StyleSheet.create({
     marginRight: 15,
     borderRadius: 5,
     backgroundColor: "#C4C4C4"
+  },
+  backDropSource: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+    borderRadius: 5,
   },
   infoArea: {
     marginRight: 105,
